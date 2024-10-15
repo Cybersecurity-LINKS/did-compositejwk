@@ -77,7 +77,7 @@ described above replacing `${base64url-value}`, and the compositeJwk structure r
       "id": "did:compositejwk:${base64url-value}#0",
       "type": "CompositeSignaturePublicKey",
       "controller": "did:compositejwk:${base64url-value}",
-      "compositeJwk": ${composite-jwk}
+      "compositeJwk": "${composite-jwk}"
     }
   ]
 }
