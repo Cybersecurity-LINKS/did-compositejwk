@@ -4,8 +4,8 @@
 
 ## compositeJwk
 
-The compositeJwk is a new [Verification Material](https://www.w3.org/TR/did-core/#verification-material) property introduced to handle PQ/T Hybrid keys.
-This object contains the PQ and traditional public keys JWK encoded, and the algId string representing the name of algorithms used to generate the hybrid signature.
+The compositeJwk is a new [Verification Material](https://www.w3.org/TR/did-core/#verification-material) property introduced to handle Post-Quantum/Traditinal (PQ/T) Hybrid keys.
+This object contains the PQ and traditional public keys, both JWK encoded, and the algId string representing the name of algorithms used to generate the hybrid signature.
 
 
 ```json
