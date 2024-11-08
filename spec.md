@@ -96,7 +96,7 @@ If the PQ and/or Traditional JWK contains a `kid` value, it is _not_ used as the
 2. Decode the remaining string using [base64url](https://datatracker.ietf.org/doc/html/rfc4648#section-5)
 3. Parse the decoded string as UTF-8 JSON
 4. Validate the `compositeJwk` properties
-5. Generate a DID Document using the retrieved composite public key material 
+5. Generate a DID Document using the composite public key 
 
 ### Update
 
