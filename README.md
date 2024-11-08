@@ -1,3 +1,3 @@
-# did:compositejwk Method Specification
+# The did:compositejwk Method 
 
-See [spec.md](./spec.md)
+See [specification](./spec.md)
