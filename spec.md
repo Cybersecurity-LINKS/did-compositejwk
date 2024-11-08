@@ -1,10 +1,10 @@
 # DID Method Specification
 
-`did:compositejwk` is a deterministic transformation of a compositeJwk into a DID Document.
+`did:compositejwk` is a deterministic transformation of a `compositeJwk` into a DID Document.
 
 ## compositeJwk
 
-The compositeJwk is a new [Verification Material](https://www.w3.org/TR/did-core/#verification-material) property introduced to handle Post-Quantum/Traditinal (PQ/T) Hybrid keys.
+The `compositeJwk` is a new [Verification Material](https://www.w3.org/TR/did-core/#verification-material) property introduced to handle Post-Quantum/Traditinal (PQ/T) hybrid keys.
 This object contains the PQ and traditional public keys, both JWK encoded, and the algId string representing the name of algorithms used to generate the hybrid signature.
 
 
@@ -55,16 +55,15 @@ The `base64url-value` is a [base64url](https://datatracker.ietf.org/doc/html/rfc
 
 #### To create the DID:
 
-1. Generate or load a compositeJwk
+1. Generate or load a `compositeJwk`
 1. Serialize it into a UTF-8 string
 1. Encode that string using base64url
 1. Attach the prefix `did:compositejwk:`
 
 #### To create the DID Document:
 
-The compositeJwk is used to generate the [DID Document](https://www.w3.org/TR/did-core/#dfn-did-documents).  
-The resulting document will take the form below with the [base64url](https://datatracker.ietf.org/doc/html/rfc4648#section-5) encoded value 
-described above replacing `${base64url-value}`, and the compositeJwk structure replacing `${composite-jwk}`:
+The `compositeJwk` is used to generate the [DID Document](https://www.w3.org/TR/did-core/#dfn-did-documents) in the following form with the [base64url](https://datatracker.ietf.org/doc/html/rfc4648#section-5) encoded value replacing `${base64url-value}`, and the `compositeJwk` structure replacing `${composite-jwk}`:
+
 ```json
 {
   "@context": [
@@ -86,9 +85,9 @@ described above replacing `${base64url-value}`, and the compositeJwk structure r
 
 #### To create the DID URL:
 
-Since `did:compositejwk` only contains a single composite key (a Traditional and a PQ key), the DID URL fragment identifier is always a fixed `#0` value.
+Since `did:compositejwk` only contains a single composite public key (a PQ and a Traditional public key), the DID URL fragment identifier is always a fixed `#0` value.
 
-If the Traditional and PQ JWKs contain a `kid` value they are _not_ used as the reference, `#0` is the only valid value.
+If the PQ and/or Traditional JWK contains a `kid` value, it is _not_ used as the reference, `#0` is the only valid value.
 
 
 ### Read
@@ -96,8 +95,8 @@ If the Traditional and PQ JWKs contain a `kid` value they are _not_ used as the 
 1. Remove the prefix `did:compositejwk:`
 2. Decode the remaining string using [base64url](https://datatracker.ietf.org/doc/html/rfc4648#section-5)
 3. Parse the decoded string as UTF-8 JSON
-4. Validate the compositeJwk properties
-5. Generate a DID Document using the contained composite public key material as defined above in 
+4. Validate the `compositeJwk` properties
+5. Generate a DID Document using the retrieved composite public key material 
 
 ### Update
 
@@ -107,16 +106,14 @@ Not supported.
 
 Not supported.
 
-## Examples
-TBC
-
 ## Security and Privacy Considerations
 
-Since this compositeJwk method is very similar to the DID JWK method, see also [did-jwk](https://github.com/quartzjer/did-jwk/blob/main/spec.md#security-and-privacy-considerations)
+Since the `did:compositejwk` method is similar to the `did:jwk` method, see also [did:jwk](https://github.com/quartzjer/did-jwk/blob/main/spec.md#security-and-privacy-considerations)
 
 ### Security
-TBC
+
+work in progress
 
 ### Privacy
 
-Using the same DID compositeJwk identifier with multiple different entities will enable those entities to correlate the usage to the same subject.
+Using the same `compositeJwk` with several different entities allows them to correlate the use to the same subject.
