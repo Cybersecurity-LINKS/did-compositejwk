@@ -74,7 +74,7 @@ The `compositeJwk` is used to generate the [DID Document](https://www.w3.org/TR/
   "verificationMethod": [
     {
       "id": "did:compositejwk:${base64url-value}#0",
-      "type": "CompositeSignaturePublicKey",
+      "type": "CompositeJsonWebKey",
       "controller": "did:compositejwk:${base64url-value}",
       "compositeJwk": "${composite-jwk}"
     }
